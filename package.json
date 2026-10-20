@@ -1,0 +1,19 @@
+{
+  "name": "astanawalk",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "collect": "node --env-file-if-exists=.env scripts/collect.js",
+    "index": "node --env-file-if-exists=.env scripts/build-index.js",
+    "import:samples": "node scripts/import-samples.js",
+    "test": "node --test",
+    "doctor": "node --env-file-if-exists=.env scripts/doctor.js",
+    "smoke:live": "node --env-file-if-exists=.env scripts/smoke-live.js",
+    "refresh": "npm run collect && npm run index"
+  },
+  "engines": {
+    "node": ">=22.16.0"
+  }
+}
