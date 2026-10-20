@@ -1,0 +1,21 @@
+{
+  "provider": "2GIS",
+  "origin": "derived_offline_from_user_supplied_snapshot",
+  "preparedAt": "2026-10-20T08:25:46.489Z",
+  "center": {
+    "lat": 51.13213,
+    "lon": 71.402828
+  },
+  "radiusMeters": 2000,
+  "originalPlaces": 315,
+  "places": 105,
+  "originalIndexEntries": 315,
+  "retainedIndexEntries": 105,
+  "originalRecordDateRange": {
+    "from": "2026-10-19",
+    "to": "2026-10-19T21:53:30.489Z"
+  },
+  "externalRefreshPerformed": false,
+  "partial": true,
+  "note": "Offline geographical subset only. No new provider requests or embeddings were made. Source timestamps are retained, not updated. Coverage is incomplete; storage and redistribution rights are not established by this archive."
+}

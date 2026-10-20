@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AstanaWalk: кафе, прогулки и развлечения рядом с Хан Шатыром — с погодой, временем пешком и понятным объяснением выбора.">
+  <meta name="theme-color" content="#faf9fc">
+  <title>AstanaWalk — куда сходить рядом</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="AstanaWalk, главная"><span class="brand-icon">↗</span>Astana<span>Walk</span></a>
+    <div class="header-right"><span class="area-label">Астана · рядом с Хан Шатыром</span><button id="about" class="quiet">О проекте</button></div>
+  </header>
+  <main>
+    <section class="hero" aria-label="О сервисе">
+      <div><p class="eyebrow">ВАШ ГОРОД · ВАШ МАРШРУТ</p><h1>Куда сходим сегодня?</h1><p class="intro">Кафе, прогулки и развлечения рядом. Найдём до трёх вариантов с учётом вашего времени и погоды.</p></div>
+      <span id="health" class="health" role="status">Загружаем места…</span>
+    </section>
+
+    <section class="search-section" aria-label="Условия поиска">
+      <form id="search">
+        <div class="form-top">
+          <div class="tabs" aria-label="Направление">
+            <button type="button" class="tab active" data-category="any" aria-pressed="true">Всё</button>
+            <button type="button" class="tab" data-category="eat" aria-pressed="false">☕ Поесть</button>
+            <button type="button" class="tab" data-category="walk" aria-pressed="false">✳ Погулять</button>
+            <button type="button" class="tab" data-category="fun" aria-pressed="false">✦ Развлечься</button>
+          </div>
+          <span class="scope-label">Район поиска: 2 км от Хан Шатыра</span>
+        </div>
+        <div class="base-filters">
+          <label>Точка старта<select id="location"><option value="51.13213,71.402828">Хан Шатыр</option><option value="custom">Точка на карте / координаты</option></select></label>
+          <label>Когда<select id="when"><option value="now">Сейчас</option><option value="2">Через 2 часа</option><option value="custom">Дата и время</option></select></label>
+          <label>Сколько времени<select id="available-time"><option value="0">Неважно</option><option value="30">30 минут</option><option value="60">1 час</option><option value="90">1,5 часа</option><option value="120">2 часа</option></select></label>
+          <label>Не дальше<select id="radius"><option value="500">500 м</option><option value="1000">1 км</option><option value="2000" selected>2 км</option></select></label>
+          <button id="pick-point" type="button" class="small-button">◎ На карте</button>
+        </div>
+        <div class="conditional-fields">
+          <div id="coordinates" hidden><label>Широта<input id="lat" type="number" step="any" min="-90" max="90" value="51.13213"></label><label>Долгота<input id="lon" type="number" step="any" min="-180" max="180" value="71.402828"></label></div>
+          <label id="date-label" hidden>Дата и время Астаны (UTC+5)<input id="datetime" type="datetime-local"></label>
+        </div>
+        <details class="filter-details">
+          <summary>Дополнительные фильтры <span>по желанию</span></summary>
+          <div class="extra-filters">
+            <label id="type-label" hidden>Тип места<select id="place-type"><option value="">Любой</option></select></label>
+            <label id="budget-label">Средний чек<select id="budget"><option value="">Любой</option><option value="3000">До 3 000 ₸</option><option value="5000">До 5 000 ₸</option><option value="7000">До 7 000 ₸</option><option value="10000">До 10 000 ₸</option></select></label>
+            <div id="features" class="feature-filters"></div>
+            <label class="check"><input id="open" type="checkbox"> Есть подтверждённое расписание</label>
+          </div>
+          <p class="micro">Выбранные фильтры учитываются и в чате.</p>
+        </details>
+        <div class="search-bottom"><p id="selection-note">Время включает дорогу туда и посещение, без обратного пути.</p><button class="primary" type="submit" id="submit">Показать места ↗</button></div>
+      </form>
+    </section>
+
+    <section id="weather-section" class="weather" aria-live="polite" hidden></section>
+    <div class="mobile-tabs" aria-label="Выбор вида"><button id="view-chat" aria-pressed="true">✦ Подбор</button><button id="view-map" aria-pressed="false">◎ Карта</button></div>
+    <section class="workspace" id="workspace">
+      <aside class="chat-panel" id="chat-panel" aria-label="Помощник по выбору мест">
+        <div class="panel-heading"><div><p class="eyebrow">ПЕРСОНАЛЬНЫЙ ПОДБОР</p><h2>Что хочется сделать?</h2></div><button id="clear-chat" class="quiet" title="Очистить переписку">Очистить</button></div>
+        <p class="chat-help">Напишите своими словами — мы уже учитываем точку старта и выбранные фильтры.</p>
+        <div class="chat-examples">
+          <button type="button" data-example="Нужна кофейня с Wi-Fi и возможностью работать с ноутбуком">☕ Кофе и ноутбук</button>
+          <button type="button" data-example="Через два часа хочу погулять. У меня 90 минут.">✳ Прогулка позже</button>
+          <button type="button" data-example="Где поесть до 7000 тенге? У меня полтора часа.">🍽 Поесть до 7 000 ₸</button>
+        </div>
+        <div id="chat-messages" role="log" aria-live="polite"><div class="chat-message assistant welcome">Привет! Расскажите, куда хочется сходить — предложу подходящие места и объясню почему.</div></div>
+        <p id="rag-state" class="rag-state" aria-live="polite"></p>
+        <form id="chat-form"><label for="chat-input" class="sr-only">Ваше пожелание</label><textarea id="chat-input" maxlength="1500" rows="3" required placeholder="Например: через 2 часа хочу кофе, есть 90 минут и 7 000 ₸"></textarea><div class="chat-form-bottom"><span>Подбираем по местам из базы</span><button id="chat-send" class="primary" type="submit">Подобрать ↗</button></div></form>
+        <p class="privacy-hint">Не вводите личные данные. <button id="privacy-inline">Как используются данные?</button></p>
+      </aside>
+      <div id="map-panel" class="map-panel">
+        <div class="map-heading"><div><h2>Места на карте</h2><p>Нажмите на карту, чтобы сменить точку старта.</p></div><span class="map-key"><i></i> Радиус 2 км</span></div>
+        <div id="places-map" aria-label="Карта мест">
+          <div id="map-placeholder"><span aria-hidden="true">◎</span><h3>Посмотрите места рядом</h3><p>На карте появятся ваши варианты и точка старта.</p><button id="load-map" class="primary">Показать карту ↗</button><p class="micro">При загрузке карты данные запрашиваются у картографического сервиса.</p></div>
+        </div>
+        <p id="map-status" role="status">Выберите точку на карте или задайте координаты.</p>
+        <div class="map-legend"><span>◎ Откуда идём</span><span>● Подходящие места</span><span>Маршрут — в 2ГИС ↗</span></div>
+      </div>
+    </section>
+
+    <section class="results-section" aria-labelledby="results-heading">
+      <div class="section-heading"><div><p class="eyebrow" id="results-mode">РЕЗУЛЬТАТЫ ПО ФИЛЬТРАМ</p><h2 id="results-heading">Подходящие места</h2></div><span id="count"></span></div>
+      <p id="status" role="status"></p><div id="results" class="cards"></div>
+      <button id="load-more" class="small-button load-more" hidden>Другие варианты ↗</button>
+    </section>
+    <section class="landmark"><span aria-hidden="true">✧</span><div><h3>Интересно про Хан Шатыр</h3><p>Короткие факты с ссылкой на источник.</p></div><button id="landmark-facts" class="small-button">Узнать больше ↗</button></section>
+  </main>
+  <footer class="site-footer"><div><a class="brand" href="/">Astana<span>Walk</span></a><p>Места в пределах 2 км от Хан Шатыра · данные могут меняться</p></div><nav aria-label="Информация"><button id="footer-sources">Источники</button><button id="footer-privacy">Приватность</button><button id="footer-about">О проекте</button></nav></footer>
+  <dialog id="details"><button id="close-details" class="close" aria-label="Закрыть">×</button><div id="detail-content"></div></dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

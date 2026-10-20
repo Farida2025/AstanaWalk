@@ -1,0 +1,416 @@
+
+> astanawalk@0.3.0 test
+> node --test
+
+TAP version 13
+# Subtest: chat refuses invented place IDs
+ok 1 - chat refuses invented place IDs
+  ---
+  duration_ms: 0.806556
+  type: 'test'
+  ...
+# Subtest: chat refuses unsupported attributes
+ok 2 - chat refuses unsupported attributes
+  ---
+  duration_ms: 12.478753
+  type: 'test'
+  ...
+# Subtest: chat substitutes facts from source rather than generated prose
+ok 3 - chat substitutes facts from source rather than generated prose
+  ---
+  duration_ms: 0.95455
+  type: 'test'
+  ...
+# Subtest: fast selection keeps verified budget and required evidence
+ok 4 - fast selection keeps verified budget and required evidence
+  ---
+  duration_ms: 0.48374
+  type: 'test'
+  ...
+# Subtest: relative departure is resolved from now, not selected time; duration remains separate
+ok 5 - relative departure is resolved from now, not selected time; duration remains separate
+  ---
+  duration_ms: 20.112428
+  type: 'test'
+  ...
+# Subtest: a follow-up with no start change preserves selected absolute time
+ok 6 - a follow-up with no start change preserves selected absolute time
+  ---
+  duration_ms: 0.331751
+  type: 'test'
+  ...
+# Subtest: relative half hour and explicit ISO date resolve deterministically
+ok 7 - relative half hour and explicit ISO date resolve deterministically
+  ---
+  duration_ms: 0.360083
+  type: 'test'
+  ...
+# Subtest: calendar rollover, timezone-less dates and midnight 24:00 are rejected
+ok 8 - calendar rollover, timezone-less dates and midnight 24:00 are rejected
+  ---
+  duration_ms: 0.287473
+  type: 'test'
+  ...
+# Subtest: mandatory form features and budget are not silently relaxed by a model
+ok 9 - mandatory form features and budget are not silently relaxed by a model
+  ---
+  duration_ms: 3.494271
+  type: 'test'
+  ...
+# Subtest: contradictory explicit category and form category yield no invented alternatives
+ok 10 - contradictory explicit category and form category yield no invented alternatives
+  ---
+  duration_ms: 0.486073
+  type: 'test'
+  ...
+# Subtest: specific name missing from data never becomes an unrelated business
+ok 11 - specific name missing from data never becomes an unrelated business
+  ---
+  duration_ms: 0.784834
+  type: 'test'
+  ...
+# Subtest: requested subtype is a structured constraint, not only a semantic preference
+ok 12 - requested subtype is a structured constraint, not only a semantic preference
+  ---
+  duration_ms: 1.462256
+  type: 'test'
+  ...
+# Subtest: a stricter form time budget cannot be relaxed by generated intent
+ok 13 - a stricter form time budget cannot be relaxed by generated intent
+  ---
+  duration_ms: 0.940448
+  type: 'test'
+  ...
+# Subtest: strict opening cannot pass without route verification
+ok 14 - strict opening cannot pass without route verification
+  ---
+  duration_ms: 0.891665
+  type: 'test'
+  ...
+# Subtest: business closing halfway through minimum visit is removed from chat
+ok 15 - business closing halfway through minimum visit is removed from chat
+  ---
+  duration_ms: 1.010004
+  type: 'test'
+  ...
+# Subtest: a place opening before calculated arrival can still qualify
+ok 16 - a place opening before calculated arrival can still qualify
+  ---
+  duration_ms: 1.345049
+  type: 'test'
+  ...
+# Subtest: only three routing calls are made even with many retrieved candidates
+ok 17 - only three routing calls are made even with many retrieved candidates
+  ---
+  duration_ms: 3.700783
+  type: 'test'
+  ...
+# Subtest: selection validation rejects overlong and empty evidence selections
+ok 18 - selection validation rejects overlong and empty evidence selections
+  ---
+  duration_ms: 0.462618
+  type: 'test'
+  ...
+# Subtest: scope is fixed around Khan Shatyr, not moved with arbitrary search coordinates
+ok 19 - scope is fixed around Khan Shatyr, not moved with arbitrary search coordinates
+  ---
+  duration_ms: 0.167082
+  type: 'test'
+  ...
+# Subtest: walking category includes mapped sights without changing source category records
+ok 20 - walking category includes mapped sights without changing source category records
+  ---
+  duration_ms: 0.179701
+  type: 'test'
+  ...
+# Subtest: unknown weather values never become a confident clear forecast
+ok 21 - unknown weather values never become a confident clear forecast
+  ---
+  duration_ms: 0.410039
+  type: 'test'
+  ...
+# Subtest: forecast gaps cannot be marked complete by checking only first and last hours
+ok 22 - forecast gaps cannot be marked complete by checking only first and last hours
+  ---
+  duration_ms: 0.422226
+  type: 'test'
+  ...
+# Subtest: missing weather measurements and forecast beyond horizon are incomplete
+ok 23 - missing weather measurements and forecast beyond horizon are incomplete
+  ---
+  duration_ms: 0.163587
+  type: 'test'
+  ...
+# Subtest: weather window includes the next hour when visit crosses its boundary
+ok 24 - weather window includes the next hour when visit crosses its boundary
+  ---
+  duration_ms: 0.215676
+  type: 'test'
+  ...
+# Subtest: weather nodes are sorted and numeric timestamp strings are normalized
+ok 25 - weather nodes are sorted and numeric timestamp strings are normalized
+  ---
+  duration_ms: 0.242616
+  type: 'test'
+  ...
+# Subtest: special closure cancels overnight opening from yesterday
+ok 26 - special closure cancels overnight opening from yesterday
+  ---
+  duration_ms: 0.18513
+  type: 'test'
+  ...
+# Subtest: malformed special hours are unknown, not a server crash
+ok 27 - malformed special hours are unknown, not a server crash
+  ---
+  duration_ms: 0.128134
+  type: 'test'
+  ...
+# Subtest: 24x7 is recognized and zero-second route at same point is valid
+ok 28 - 24x7 is recognized and zero-second route at same point is valid
+  ---
+  duration_ms: 0.494225
+  type: 'test'
+  ...
+# Subtest: visit may finish exactly at closing, but never run past it
+ok 29 - visit may finish exactly at closing, but never run past it
+  ---
+  duration_ms: 0.604802
+  type: 'test'
+  ...
+# Subtest: invalid forecast nodes cannot become epoch zero or crash normalization
+ok 30 - invalid forecast nodes cannot become epoch zero or crash normalization
+  ---
+  duration_ms: 0.189236
+  type: 'test'
+  ...
+# Subtest: malformed daily working hours are unknown instead of crashing schedule checks
+ok 31 - malformed daily working hours are unknown instead of crashing schedule checks
+  ---
+  duration_ms: 0.135575
+  type: 'test'
+  ...
+# Subtest: overnight opening uses previous day, including end boundary
+ok 32 - overnight opening uses previous day, including end boundary
+  ---
+  duration_ms: 1.536768
+  type: 'test'
+  ...
+# Subtest: special closure overrides weekly opening
+ok 33 - special closure overrides weekly opening
+  ---
+  duration_ms: 0.177478
+  type: 'test'
+  ...
+# Subtest: missing feature and price remain unknown and cannot pass strict filters
+ok 34 - missing feature and price remain unknown and cannot pass strict filters
+  ---
+  duration_ms: 1.943111
+  type: 'test'
+  ...
+# Subtest: mall named Park is not a walking park
+ok 35 - mall named Park is not a walking park
+  ---
+  duration_ms: 0.759415
+  type: 'test'
+  ...
+# Subtest: RAG generation receives retrieved POI and preserves budget, visit plan and weather
+ok 36 - RAG generation receives retrieved POI and preserves budget, visit plan and weather
+  ---
+  duration_ms: 24.608671
+  type: 'test'
+  ...
+# Subtest: unverifiable mandatory outlets return no invented recommendations
+ok 37 - unverifiable mandatory outlets return no invented recommendations
+  ---
+  duration_ms: 0.441446
+  type: 'test'
+  ...
+# Subtest: invented model ID falls back to verified records with explicit label
+ok 38 - invented model ID falls back to verified records with explicit label
+  ---
+  duration_ms: 3.067968
+  type: 'test'
+  ...
+# Subtest: route and weather failure do not promise ETA or good weather
+ok 39 - route and weather failure do not promise ETA or good weather
+  ---
+  duration_ms: 0.971566
+  type: 'test'
+  ...
+# Subtest: closed at arrival is removed even if open at search time
+ok 40 - closed at arrival is removed even if open at search time
+  ---
+  duration_ms: 1.017384
+  type: 'test'
+  ...
+# Subtest: time budget excludes physically impossible visit without inventing route time
+ok 41 - time budget excludes physically impossible visit without inventing route time
+  ---
+  duration_ms: 0.301335
+  type: 'test'
+  ...
+# Subtest: poor weather ranks supported indoor category ahead of outdoor for mixed request
+ok 42 - poor weather ranks supported indoor category ahead of outdoor for mixed request
+  ---
+  duration_ms: 0.620416
+  type: 'test'
+  ...
+# Subtest: child request requires source-supported relevant category or kids menu
+ok 43 - child request requires source-supported relevant category or kids menu
+  ---
+  duration_ms: 2.085375
+  type: 'test'
+  ...
+# Subtest: visit closing midway remains unconfirmed, never promises full visit
+ok 44 - visit closing midway remains unconfirmed, never promises full visit
+  ---
+  duration_ms: 0.922171
+  type: 'test'
+  ...
+# Subtest: description uses only fields from source and no invented amenities
+ok 45 - description uses only fields from source and no invented amenities
+  ---
+  duration_ms: 0.665965
+  type: 'test'
+  ...
+# Subtest: incomplete forecast is not interpreted as fine weather
+ok 46 - incomplete forecast is not interpreted as fine weather
+  ---
+  duration_ms: 0.195014
+  type: 'test'
+  ...
+# Subtest: advice includes next hour if walk crosses the hour boundary
+ok 47 - advice includes next hour if walk crosses the hour boundary
+  ---
+  duration_ms: 0.96753
+  type: 'test'
+  ...
+# Subtest: missing forecast hour does not imply good weather
+ok 48 - missing forecast hour does not imply good weather
+  ---
+  duration_ms: 0.137126
+  type: 'test'
+  ...
+# Subtest: rain, snow and wind produce specific practical advice
+ok 49 - rain, snow and wind produce specific practical advice
+  ---
+  duration_ms: 1.107741
+  type: 'test'
+  ...
+# Subtest: cosine ranks matching direction above orthogonal vector
+ok 50 - cosine ranks matching direction above orthogonal vector
+  ---
+  duration_ms: 1.593204
+  type: 'test'
+  ...
+# Subtest: fingerprint changes when source characteristics change
+ok 51 - fingerprint changes when source characteristics change
+  ---
+  duration_ms: 0.548227
+  type: 'test'
+  ...
+# Subtest: subtype filter preserves radius and required characteristics
+ok 52 - subtype filter preserves radius and required characteristics
+  ---
+  duration_ms: 1.81649
+  type: 'test'
+  ...
+# Subtest: weather advice distinguishes cold, heat and rain without inventing precipitation type
+ok 53 - weather advice distinguishes cold, heat and rain without inventing precipitation type
+  ---
+  duration_ms: 0.323548
+  type: 'test'
+  ...
+# Subtest: health is explicit that configured capability is not a live availability check
+ok 54 - health is explicit that configured capability is not a live availability check
+  ---
+  duration_ms: 26.899086
+  type: 'test'
+  ...
+# Subtest: chat passes every selected filter to backend and limits history
+ok 55 - chat passes every selected filter to backend and limits history
+  ---
+  duration_ms: 13.928551
+  type: 'test'
+  ...
+# Subtest: null and array bodies are rejected, not interpreted as upstream outages
+ok 56 - null and array bodies are rejected, not interpreted as upstream outages
+  ---
+  duration_ms: 7.833296
+  type: 'test'
+  ...
+# Subtest: non-JSON chat content is rejected
+ok 57 - non-JSON chat content is rejected
+  ---
+  duration_ms: 4.225243
+  type: 'test'
+  ...
+# Subtest: large payload and oversized message are rejected before provider use
+ok 58 - large payload and oversized message are rejected before provider use
+  ---
+  duration_ms: 14.203977
+  type: 'test'
+  ...
+# Subtest: invalid coordinates, out of scope and radius beyond scope are rejected
+ok 59 - invalid coordinates, out of scope and radius beyond scope are rejected
+  ---
+  duration_ms: 9.531207
+  type: 'test'
+  ...
+# Subtest: date with invalid calendar day is rejected before any external call
+ok 60 - date with invalid calendar day is rejected before any external call
+  ---
+  duration_ms: 4.423052
+  type: 'test'
+  ...
+# Subtest: invalid booleans and feature arrays are rejected
+ok 61 - invalid booleans and feature arrays are rejected
+  ---
+  duration_ms: 10.901625
+  type: 'test'
+  ...
+# Subtest: foreign browser origins cannot invoke even GET provider APIs
+ok 62 - foreign browser origins cannot invoke even GET provider APIs
+  ---
+  duration_ms: 3.756926
+  type: 'test'
+  ...
+# Subtest: allowed CORS preflight works for JSON POST
+ok 63 - allowed CORS preflight works for JSON POST
+  ---
+  duration_ms: 2.985724
+  type: 'test'
+  ...
+# Subtest: chat rate limiting returns Retry-After and leaves catalog available
+ok 64 - chat rate limiting returns Retry-After and leaves catalog available
+  ---
+  duration_ms: 7.341885
+  type: 'test'
+  ...
+# Subtest: secrets and raw data files are not served; security headers are set
+ok 65 - secrets and raw data files are not served; security headers are set
+  ---
+  duration_ms: 6.267675
+  type: 'test'
+  ...
+# Subtest: facts endpoint cannot act as an arbitrary Wikipedia proxy
+ok 66 - facts endpoint cannot act as an arbitrary Wikipedia proxy
+  ---
+  duration_ms: 2.826915
+  type: 'test'
+  ...
+# Subtest: unknown provider exception details never leak to clients
+ok 67 - unknown provider exception details never leak to clients
+  ---
+  duration_ms: 6.393469
+  type: 'test'
+  ...
+1..67
+# tests 67
+# suites 0
+# pass 67
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 361.580179

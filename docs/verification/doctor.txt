@@ -1,0 +1,29 @@
+
+> astanawalk@0.3.0 doctor
+> node --env-file-if-exists=.env scripts/doctor.js
+
+{
+  "node": "v22.16.0",
+  "places": 105,
+  "outsideScope": 0,
+  "categories": {
+    "eat": 41,
+    "walk": 3,
+    "fun": 68,
+    "sights": 3
+  },
+  "knownPrices": 35,
+  "withSchedule": 100,
+  "index": {
+    "ready": true,
+    "indexed": 105,
+    "total": 105,
+    "model": "gemini-embedding-001"
+  },
+  "configured": {
+    "TWOGIS_API_KEY": false,
+    "YANDEX_WEATHER_KEY": false,
+    "GEMINI_API_KEY": false
+  },
+  "warning": "No external requests were sent. Configured keys are not proof of provider availability."
+}

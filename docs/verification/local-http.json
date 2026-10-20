@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-20T08:30:33.570Z",
+  "mode": "Real local HTTP server and bundled place/index files; no external providers and no browser navigation",
+  "places": 105,
+  "index": {
+    "ready": true,
+    "indexed": 105,
+    "total": 105,
+    "model": "gemini-embedding-001"
+  },
+  "filteredResultCount": 3,
+  "staticFiles": {
+    "/": 200,
+    "/app.js": 200,
+    "/map.js": 200,
+    "/route-weather.js": 200,
+    "/style.css": 200
+  },
+  "envNotExposed": true
+}

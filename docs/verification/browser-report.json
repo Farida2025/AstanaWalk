@@ -1,0 +1,27 @@
+{
+  "passed": 20,
+  "checks": [
+    "initial catalog renders three cards",
+    "desktop has no horizontal overflow",
+    "map receives origin and the same three cards",
+    "chat payload includes selected category, budget and Wi-Fi",
+    "chat cards and map replace catalog together",
+    "effective start time is reflected in the form",
+    "actual retrieval mode is visible",
+    "map click changes the form point",
+    "map click searches with that point",
+    "out-of-area click cannot change the origin",
+    "clear chat removes previous context from next request",
+    "source text is escaped and cannot execute HTML",
+    "changing conditions cancels a pending response",
+    "cancellation clears the loading indicator",
+    "cancelled pending response does not replace cards",
+    "weather failure preserves catalog and explicit warning",
+    "mobile has no horizontal overflow",
+    "mobile map tab hides chat and shows map",
+    "mobile chat tab restores chat",
+    "no browser JavaScript exceptions"
+  ],
+  "errors": [],
+  "mode": "offline synthetic HTTP fixtures and Leaflet contract double; not live provider or real tile verification"
+}

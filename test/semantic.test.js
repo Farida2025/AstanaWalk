@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {cosine,fingerprint} from '../src/embeddings.js';
+import {placeTypes} from '../src/categories.js';
+import {searchPlaces,CENTER} from '../src/places.js';
+import {weatherMessage} from '../public/route-weather.js';
+test('cosine ranks matching direction above orthogonal vector',()=>{assert.equal(cosine([1,0],[1,0]),1);assert.equal(cosine([1,0],[0,1]),0);assert.throws(()=>cosine([1],[1,2]));});
+test('fingerprint changes when source characteristics change',()=>{const p={id:'a',name:'Cafe',rubrics:[],attributes:[],averageCheck:null};assert.notEqual(fingerprint(p),fingerprint({...p,attributes:[{name:'Wi-Fi'}]}));});
+test('subtype filter preserves radius and required characteristics',()=>{const p={id:'a',name:'VR',point:CENTER,categories:['fun'],rubrics:[{name:'Центры виртуальной реальности'}],features:{},attributes:[],schedule:null};assert.deepEqual(placeTypes(p),['vr']);assert.equal(searchPlaces([p],{...CENTER,at:'2026-10-20T12:00:00+05:00',type:'quest'}).length,0);});
+test('weather advice distinguishes cold, heat and rain without inventing precipitation type',()=>{assert.match(weatherMessage([{temperature:-20,windGust:5,accumulatedPrec:0}]),/мороз/);assert.match(weatherMessage([{temperature:32,windGust:5,accumulatedPrec:0}]),/жара/);assert.match(weatherMessage([{temperature:12,windGust:5,accumulatedPrec:1}],{walking:true}),/осадки/);});
